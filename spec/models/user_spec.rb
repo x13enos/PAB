@@ -1,5 +1,5 @@
 describe User do
-  describe ".set_default_role" do
+  describe "#set_default_role" do
     let(:admin) { build(:user, :role => :admin) }
     let(:user) { build(:user) }
 
