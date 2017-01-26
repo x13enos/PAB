@@ -1,0 +1,47 @@
+<div class='clearfix'>
+  <h1 class='pull-left'>Traps</h1>
+  <%= link_to 'Add trap', new_admin_trap_path, :class => "btn btn-lg btn-primary pull-right add_item_button"%>
+</div>
+
+
+<div class='margin-top-10' >
+  <% if @traps.present? %>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Challenge rating</th>
+          <th>Experience</th>
+          <th>Type of system</th>
+          <th>Trigger</th>
+          <th>Reset</th>
+          <th>Perception</th>
+          <th>Disable device</th>
+          <th>Effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @traps.each do |trap| %>
+          <tr>
+            <td><%= link_to trap.name, admin_trap_path(trap) %></td>
+            <td><%= trap.challenge_rating %></td>
+            <td><%= trap.experience %></td>
+            <td><%= trap.type_of_system.humanize %></td>
+            <td><%= trap.trigger %></td>
+            <td><%= trap.reset %></td>
+            <td><%= trap.perception %></td>
+            <td><%= trap.disable_devise %></td>
+            <td><%= trap.effect %></td>
+            <td>
+              <%= link_to "Edit", edit_admin_trap_path(trap), :class => 'btn btn-success btn-xs' %>
+              <%= link_to "Remove", admin_trap_path(trap), :method => :delete, data: { :confirm => "Are you sure?" }, :class => 'btn btn-danger btn-xs' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @traps %>
+  <% else %>
+    <h1>We don't have any of traps. :(</h1>
+  <% end %>
+</div>
