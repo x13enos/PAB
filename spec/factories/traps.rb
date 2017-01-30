@@ -3,7 +3,7 @@ FactoryGirl.define do
     name "MyString"
     challenge_rating 1
     experience 1
-    type_of_system "MyString"
+    type_of_system "magical"
     reset "MyString"
     trigger "MyString"
     effect "MyText"

@@ -1,0 +1,9 @@
+ru:
+  bot:
+    traps:
+      type_of_system:
+        mechanical: Механическая
+        magical: Магическая 
+      random: "%{name}\n\nСложность: %{challenge_rating}\nОпыт: %{experience}\nТип ловушки: %{type_of_system}\nПерезарядка: %{reset}\nУсловие срабатывания: %{trigger}\n\nЭффект: %{effect}"
+      info: "Для того чтобы получить случайную ловушку введить комманду /traps и число которое будет обозначать коэффициент сложности(1-20).\n\nПример - /traps 1"
+      please_use_correct_number: "Пожалуйста, укажите уровень сложности ловушки(1-20)"

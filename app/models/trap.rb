@@ -9,4 +9,8 @@ class Trap < ApplicationRecord
 
   validates :challenge_rating, :experience, :numericality => { :greater_than => 0 }
 
+  def self.get_random_traps(rating, number)
+    where(:challenge_rating => rating).order("RANDOM()").limit(number)
+  end
+
 end

@@ -21,5 +21,22 @@ RSpec.describe Trap, type: :model do
       expect(Trap::TYPES_OF_SYSTEM).to eq(['mechanical', "magical"])
     end
   end
-end
 
+  describe ".get_random_traps" do
+    let!(:trap1) { create(:trap, :challenge_rating => 1) }
+    let!(:trap2) { create(:trap, :challenge_rating => 1) }
+    let!(:trap3) { create(:trap, :challenge_rating => 2) }
+
+    it 'should return two trap' do
+      expect(Trap.get_random_traps(1, 2).map(&:id)).to include(trap1.id, trap2.id)
+    end
+
+    it 'should return only one trap' do
+      expect(Trap.get_random_traps(1, 1).size).to eq(1)
+    end
+
+    it 'should return only traps with current challenge rating' do
+      expect(Trap.get_random_traps(1, 2).map(&:challenge_rating)).to eq([1,1])
+    end
+  end
+end
