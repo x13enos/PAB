@@ -11,18 +11,19 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
   end
 
   def traps(message=nil)
+    set_locale(:ru)
     trap_response = TrapHandler.new(message).perform
     respond_with :message, text: trap_response
   end
 
   def start(ta = nil, *)
-    # do_smth_with(data)
-
-    # There are `chat` & `from` shortcut methods.
-    # For callback queries `chat` if taken from `message` when it's available.
     response = from ? "Hello #{from['username']}!" : 'Hi there!'
-    # There is `respond_with` helper to set `chat_id` from received message:
     respond_with :message, text: response
-    # `reply_with` also sets `reply_to_message_id`:
+  end
+
+  private
+
+  def set_locale(locale)
+    I18n.locale = locale
   end
 end
