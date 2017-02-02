@@ -16,6 +16,8 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Dotenv::Railtie.load
+
 module App
   class Application < Rails::Application
 
@@ -29,6 +31,8 @@ module App
         request_specs: false
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
+
+    # config.i18n.default_locale = :ru
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

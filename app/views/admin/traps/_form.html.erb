@@ -1,0 +1,16 @@
+<%= simple_form_for [:admin, @trap], :html => {:multipart => true} do |f| %>
+
+    <%= f.input :name, :required => false %>
+    <%= f.input :challenge_rating, :required => false %>
+    <%= f.input :experience, :required => false %>
+    <%= f.input :type_of_system, :collection => Trap::TYPES_OF_SYSTEM.map{|t| [t.humanize, t]}, :required => false %>
+    <%= f.input :reset, :required => false %>
+    <%= f.input :trigger, :required => false %>
+    <%= f.input :perception, :required => false %>
+    <%= f.input :disable_devise, :required => false %>
+    <%= f.input :effect, :required => false %>
+    <%= f.input :description, :required => false %>
+    <%= link_to 'Back', admin_traps_path, :class => "btn btn-default" %>
+    <%= f.submit "Save", :class => "btn btn-success" %>
+
+<% end %>
