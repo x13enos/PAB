@@ -12,6 +12,7 @@ gem 'kaminari'
 gem 'puma', '~> 3.0'
 gem 'jbuilder', '~> 2.5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'pg'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'simple_form'
