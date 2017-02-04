@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  paginates_per 20
+
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 

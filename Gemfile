@@ -2,6 +2,13 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'sass-rails', '~> 5.0'
+gem 'coffee-rails', '~> 4.2'
+gem 'uglifier', '>= 1.3.0'
+gem 'jquery-rails'
+gem 'turbolinks'
+gem 'bootstrap-sass', '3.2.0.2'
+gem 'kaminari'
 gem 'puma', '~> 3.0'
 gem 'jbuilder', '~> 2.5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

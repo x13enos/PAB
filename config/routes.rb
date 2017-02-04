@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-    telegram_webhooks TelegramWebhooksController
+  devise_for :users
+  telegram_webhooks TelegramWebhooksController
+
+  namespace :admin do
+    resources :users
+    resources :traps
+  end
+
+  root to: "admin/users#index"
 end
