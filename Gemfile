@@ -17,7 +17,8 @@ gem 'pg'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'simple_form'
 gem 'telegram-bot'
-
+gem "reform"
+gem "reform-rails"
 
 
 #authorization
