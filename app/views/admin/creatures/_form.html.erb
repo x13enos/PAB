@@ -1,0 +1,39 @@
+<ul class="nav nav-tabs nav-margin" role="tablist">
+  <li role="presentation" class="active"><a href="#main" aria-controls="home" role="tab" data-toggle="tab">Main</a></li>
+  <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Defence</a></li>
+  <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Offence</a></li>
+  <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Statistics</a></li>
+  <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Ecology</a></li>
+</ul>
+
+<%= simple_form_for [:admin, @creature], :html => {:multipart => true} do |f| %>
+  <div class="tab-content margin-bottom-20">
+    <div role="tabpanel" class="tab-pane active" id="main">
+      <%= f.input :name, :required => false %>
+      <%= f.input :challenge_rating, :required => false %>
+      <%= f.input :experience, :required => false %>
+      <%= f.input :class_name, :required => false %>
+      <%= f.input :alignment, :required => false %>
+      <%= f.input :size, :required => false %>
+      <%= f.input :reach, :required => false %>
+      <%= f.input :init, :required => false %>
+      <%= f.input :perception, :required => false %>
+      <%= f.input :race, :required => false %>
+      <%= f.input :type_name, :required => false %>
+      <h5>Subtypes</h5>
+      <div class='creature_subtypes_block'>
+        <% @creature.subtypes.each do |s| %>
+          <%= f.input :subtypes, :as => :string, :label => false, :input_html => { :value => s, :name => 'creature[subtypes][]' } %>
+        <% end %>
+      </div>
+      <button class="add-subtype-button  btn-xs btn btn-success"> Add additional subtype</button>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="profile">...</div>
+    <div role="tabpanel" class="tab-pane" id="messages">...</div>
+    <div role="tabpanel" class="tab-pane" id="settings">...</div>
+  </div>
+
+  <%= link_to 'Back', admin_creatures_path, :class => "btn btn-default" %>
+  <%= f.submit "Save", :class => "btn btn-success" %>
+
+<% end %>

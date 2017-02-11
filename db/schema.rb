@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123151906) do
+ActiveRecord::Schema.define(version: 20170204100713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "creatures", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "active"
+    t.float    "challenge_rating"
+    t.integer  "experience"
+    t.string   "class_name"
+    t.string   "alignment"
+    t.integer  "size"
+    t.integer  "reach"
+    t.integer  "init"
+    t.string   "sense"
+    t.integer  "perception"
+    t.string   "race"
+    t.string   "type_name"
+    t.text     "subtypes",         default: [],              array: true
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
 
   create_table "traps", force: :cascade do |t|
     t.string   "name"
