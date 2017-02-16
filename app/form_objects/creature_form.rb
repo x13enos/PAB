@@ -13,6 +13,7 @@ class CreatureForm < Reform::Form
   property :subtypes
   property :race
 
+  validates_uniqueness_of :name, case_sensitive: false
   validates :name, :challenge_rating, :experience, :alignment, :init, :perception, :type_name, :presence => true
   validates :challenge_rating, :experience, :numericality => { :greater_than => 0 }
 

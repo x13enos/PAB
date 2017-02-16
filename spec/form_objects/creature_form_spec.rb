@@ -70,6 +70,26 @@ RSpec.describe CreatureForm do
         expect(form.errors[:experience]).to eq(["must be greater than 0"])
       end
     end
+
+    context "uniqueness" do
+      let(:creature) do
+        build(:creature, {
+          :challenge_rating => -1,
+          :experience => -1,
+          :name => "gnoll"
+        })
+      end
+      let(:form) { CreatureForm.new(creature) }
+
+      before do
+        create(:creature, :name => 'gnoll')
+        form.valid?
+      end
+
+      it 'should validate name' do
+        expect(form.errors[:name]).to eq(["has already been taken"])
+      end
+    end
   end
 
   describe ".initialize" do
