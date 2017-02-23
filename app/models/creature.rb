@@ -7,4 +7,6 @@ class Creature < ApplicationRecord
                  "Large" => 10, "Huge" => 15, "Gargantuan" => 20, "Colossal" => 30 }
 
   paginates_per 20
+
+  scope :active, -> { where(:active => true) }
 end

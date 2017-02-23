@@ -20,6 +20,9 @@
   <% if @creature.race.present? %>
     <div>Race - <%= @creature.race %> </div>
   <% end %>
+  <% if @creature.sense.present? %>
+    <div>Sense - <%= @creature.sense %> </div>
+  <% end %>
   <div>Type - <%= @creature.type_name %> </div>
   <% if @creature.subtypes.present? %>
     <div>Subtypes - <%= @creature.subtypes.join(", ") %></div>

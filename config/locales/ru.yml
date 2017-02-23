@@ -1,6 +1,26 @@
 ru:
   app:
     creatures:
+      alignments:
+        "LG": 'Принципиально добрый'
+        "NG": 'Нейтрально добрый'
+        "CG": 'Хаотичный злой'
+        "LN": 'Приципиально нейтральный'
+        "N" : 'Нейтральный'
+        "CN": 'Хаотичный нейтральный'
+        "LE": 'Принципиально злой'
+        "NE": 'Нейтральный злой'
+        "CE": 'Хаотичный злой'
+      sizes:
+        fine: "Крошечный"
+        dimunitive: "Мелкий"
+        tiny: "Маленький"
+        small: "Небольшой"
+        medium: "Средний"
+        large: "Большой"
+        huge: "Огромный"
+        gargantuan: "Громадный"
+        colossal: "Колоссальный"
       names:
         goblin: "Гоблин"
         ghoul: "Гуль"
@@ -50,12 +70,24 @@ ru:
         swarm: "Стайный"
         water: "Водный"
   bot:
+    creatures: 
+      info: "Для того чтобы получить информацию о существе, введите комманду /creatures и имя существа.\n\nПример - /creatures Гоблин"
+      please_use_correct_name: "К сожалению такое существо не было найдено."
+      response: 
+        main_section:
+          name_challenge_rating_xp: "%{name}\n\nКС %{challenge_rating},   XP %{experience}\n"
+          class: "Класс: %{class}\n"
+          race: "Раса: %{race}\n"
+          alignment_size: "%{alignment}, %{size}, "
+          type: "%{type}\n"
+          type_subtypes: "%{type}(%{subtypes})\n"
+          init_perception_sense: "Инициатива: %{init}; %{sense}фт.; Внимание: %{perception}"
     traps:
       type_of_system:
         mechanical: Механическая
         magical: Магическая 
-      random: "%{name}\n\nСложность: %{challenge_rating}\nОпыт: %{experience}\nТип ловушки: %{type_of_system}\nПерезарядка: %{reset}\nУсловие срабатывания: %{trigger}\n\nЭффект: %{effect}"
-      info: "Для того чтобы получить случайную ловушку введить комманду /traps и число которое будет обозначать коэффициент сложности(1-20).\n\nПример - /traps 1"
+      random: "%{name}\n\nКС %{challenge_rating},   XP %{experience}\nТип ловушки: %{type_of_system}\nПерезарядка: %{reset}\nУсловие срабатывания: %{trigger}\n\nЭффект: %{effect}"
+      info: "Для того чтобы получить случайную ловушку введите комманду /traps и число которое будет обозначать коэффициент сложности(1-20).\n\nПример - /traps 1"
       please_use_correct_number: "Пожалуйста, укажите уровень сложности ловушки(1-20)"
       
         
