@@ -27,6 +27,37 @@
   <% if @creature.subtypes.present? %>
     <div>Subtypes - <%= @creature.subtypes.join(", ") %></div>
   <% end %>
+  <div>Type - <%= @creature.type_name %> </div>
+  <h4>Defence</h4>
+  <div>Armor class - <%= @creature.armor_class %> </div>
+  <div>Touch - <%= @creature.armor_class_touch %> </div>
+  <div>Flat footed - <%= @creature.armor_class_flat_footed %> </div>
+  <% if @creature.armor_class_description.present? %>
+    <div>Armor class description - <%= @creature.armor_class_description %></div>
+  <% end %>
+  <div>Hit points - <%= @creature.hit_points %> </div>
+  <div>Hit dice - <%= @creature.hit_dice %> </div>
+  <% if @creature.regeneration.present? %>
+    <div>Regeneration - <%= @creature.regeneration %></div>
+  <% end %>
+  <div>Fortitude - <%= @creature.fortitude %> </div>
+  <div>Reflex - <%= @creature.reflex %> </div>
+  <div>Will - <%= @creature.will %> </div>
+  <% if @creature.defensive_abilities.present? %>
+    <div>Defensive abilities - <%= @creature.defensive_abilities %></div>
+  <% end %>
+  <% if @creature.damage_reduction.present? %>
+    <div>Damage reduction - <%= @creature.damage_reduction %></div>
+  <% end %>
+  <% if @creature.immune.present? %>
+    <div>Immune - <%= @creature.immune %></div>
+  <% end %>
+  <% if @creature.resist.present? %>
+    <div>Resist - <%= @creature.resist %></div>
+  <% end %>
+  <% if @creature.spell_resistance.present? %>
+    <div>Spell resistance - <%= @creature.spell_resistance %></div>
+  <% end %>
   <br>
   <%= link_to 'Back', admin_creatures_path, :class => 'btn btn-primary' %>
 </div>

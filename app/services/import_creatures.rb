@@ -37,6 +37,12 @@ class ImportCreatures
   end
 
   def build_params_hash(row)
+    creature_params = {}
+    creature_params.merge!(main_params(row))
+    creature_params.merge!(defence_params(row))
+  end
+
+  def main_params(row)
     {
       :name => get_name(row),
       :challenge_rating => get_challenge_rating(row),
@@ -53,6 +59,19 @@ class ImportCreatures
     }
   end
 
+  def defence_params(row)
+    {
+      :armor_class => row[17],
+      :armor_class_touch => row[18],
+      :armor_class_flat_footed => row[19],
+      :hit_points => row[20],
+      :hit_dice => row[21],
+      :fortitude => row[22],
+      :reflex => row[23],
+      :will => row[24]
+    }
+  end
+
   def get_name(data)
     I18n.t("app.creatures.names.#{data[0].downcase}")
   end
@@ -66,7 +85,7 @@ class ImportCreatures
   end
 
   def get_alignment(data)
-    I18n.t("app.creatures.names.#{data[8]}")
+    I18n.t("app.creatures.alignments.#{data[8]}")
   end
 
   def get_type(data)
