@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204100713) do
+ActiveRecord::Schema.define(version: 20170302083425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,9 +29,24 @@ ActiveRecord::Schema.define(version: 20170204100713) do
     t.integer  "perception"
     t.string   "race"
     t.string   "type_name"
-    t.text     "subtypes",         default: [],              array: true
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.text     "subtypes",                default: [],              array: true
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "armor_class"
+    t.integer  "armor_class_touch"
+    t.integer  "armor_class_flat_footed"
+    t.string   "armor_class_description"
+    t.integer  "hit_points"
+    t.string   "hit_dice"
+    t.string   "regeneration"
+    t.integer  "fortitude"
+    t.integer  "reflex"
+    t.string   "will"
+    t.string   "defensive_abilities"
+    t.string   "damage_reduction"
+    t.string   "immune"
+    t.string   "resist"
+    t.string   "spell_resistance"
   end
 
   create_table "traps", force: :cascade do |t|

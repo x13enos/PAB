@@ -11,7 +11,15 @@ RSpec.describe CreatureForm do
           :alignment => nil,
           :type_name => nil,
           :init => nil,
-          :perception => nil
+          :perception => nil,
+          :armor_class => nil,
+          :armor_class_touch => nil,
+          :armor_class_flat_footed => nil,
+          :hit_points => nil,
+          :hit_dice => nil,
+          :fortitude => nil,
+          :reflex => nil,
+          :will => nil
         })
       end
       let(:form) { CreatureForm.new(creature) }
@@ -47,6 +55,42 @@ RSpec.describe CreatureForm do
       it 'should validate perception' do
         expect(form.errors[:perception]).to eq(["can't be blank"])
       end
+
+      it 'should validate armor_class' do
+        expect(form.errors[:armor_class]).to include("can't be blank")
+      end
+
+      it 'should validate armor_class_touch' do
+        expect(form.errors[:armor_class_touch]).to eq(["can't be blank"])
+      end
+
+      it 'should validate armor_class_flat_footed' do
+        expect(form.errors[:armor_class_flat_footed]).to eq(["can't be blank"])
+      end
+
+      it 'should validate hit_points' do
+        expect(form.errors[:hit_points]).to include("can't be blank")
+      end
+
+      it 'should validate hit_dice' do
+        expect(form.errors[:hit_dice]).to eq(["can't be blank"])
+      end
+
+      it 'should validate fortitude' do
+        expect(form.errors[:fortitude]).to eq(["can't be blank"])
+      end
+
+      it 'should validate reflex' do
+        expect(form.errors[:reflex]).to eq(["can't be blank"])
+      end
+
+      it 'should validate reflex' do
+        expect(form.errors[:reflex]).to eq(["can't be blank"])
+      end
+
+      it 'should validate will' do
+        expect(form.errors[:will]).to eq(["can't be blank"])
+      end
     end
 
     context "validate_numericality_of" do
@@ -54,6 +98,8 @@ RSpec.describe CreatureForm do
         build(:creature, {
           :challenge_rating => -1,
           :experience => -1,
+          :armor_class => -1,
+          :hit_points => -1
         })
       end
       let(:form) { CreatureForm.new(creature) }
@@ -68,6 +114,14 @@ RSpec.describe CreatureForm do
 
       it 'should validate experience' do
         expect(form.errors[:experience]).to eq(["must be greater than 0"])
+      end
+
+      it 'should validate armor_class' do
+        expect(form.errors[:armor_class]).to eq(["must be greater than 0"])
+      end
+
+      it 'should validate hit_points' do
+        expect(form.errors[:hit_points]).to eq(["must be greater than 0"])
       end
     end
 

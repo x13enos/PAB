@@ -1,4 +1,5 @@
 class CreatureForm < Reform::Form
+  # Main params
   property :name
   property :challenge_rating
   property :experience
@@ -12,10 +13,28 @@ class CreatureForm < Reform::Form
   property :sense
   property :subtypes
   property :race
+  # Defence params
+  property :armor_class
+  property :armor_class_touch
+  property :armor_class_flat_footed
+  property :armor_class_description
+  property :hit_points
+  property :hit_dice
+  property :regeneration
+  property :fortitude
+  property :reflex
+  property :will
+  property :defensive_abilities
+  property :damage_reduction
+  property :immune
+  property :resist
+  property :spell_resistance
 
   validates_uniqueness_of :name, case_sensitive: false
-  validates :name, :challenge_rating, :experience, :alignment, :init, :perception, :type_name, :presence => true
-  validates :challenge_rating, :experience, :numericality => { :greater_than => 0 }
+  validates :name, :challenge_rating, :experience, :alignment, :init, :perception, :type_name,
+            :armor_class, :armor_class_touch, :armor_class_flat_footed, :hit_points,
+            :hit_dice, :fortitude, :reflex, :will, :presence => true
+  validates :challenge_rating, :experience, :hit_points, :armor_class, :numericality => { :greater_than => 0 }
 
   def initialize(object)
     super
