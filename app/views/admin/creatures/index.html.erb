@@ -1,0 +1,44 @@
+<div class='clearfix'>
+  <h1 class='pull-left'>Creatures</h1>
+  <%= link_to 'Add creature', new_admin_creature_path, :class => "btn btn-lg btn-primary pull-right add_item_button"%>
+</div>
+
+
+<div class='margin-top-10' >
+  <% if @creatures.present? %>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Challenge rating</th>
+          <th>Experience</th>
+          <th>Init</th>
+          <th>Perception</th>
+          <th>Alignment</th>
+          <th>Active?</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @creatures.each do |c| %>
+          <tr>
+            <td><%= link_to c.name, admin_creature_path(c) %></td>
+            <td><%= c.challenge_rating %></td>
+            <td><%= c.experience %></td>
+            <td><%= c.init %></td>
+            <td><%= c.perception %></td>
+            <td><%= c.alignment %></td>
+            <td><%= c.active ? "Yes" : "No" %></td>
+            <td>
+              <%= link_to "Edit", edit_admin_creature_path(c), :class => 'btn btn-success btn-xs' %>
+              <%= link_to "Remove", admin_creature_path(c), :method => :delete, data: { :confirm => "Are you sure?" }, :class => 'btn btn-danger btn-xs' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @creatures %>
+  <% else %>
+    <h1>We don't have any of creatures. :(</h1>
+  <% end %>
+</div>
