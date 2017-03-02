@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe CreatureForm do
+  before do
+    I18n.locale = :en
+  end
 
   context "Validations" do
     context "presence" do

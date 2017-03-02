@@ -4,7 +4,7 @@ FactoryGirl.define do
     challenge_rating 1
     experience 1
     class_name "name"
-    alignment "NE"
+    alignment "Нейтральный злой"
     size  5
     reach 5
     init  6
