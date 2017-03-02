@@ -66,7 +66,7 @@ class ImportCreatures
   end
 
   def get_alignment(data)
-    data[8]
+    I18n.t("app.creatures.names.#{data[8]}")
   end
 
   def get_type(data)

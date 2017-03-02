@@ -37,7 +37,7 @@ class CreatureHandler
       :experience => c.experience,
       :race => c.race,
       :class => c.class_name,
-      :alignment => get_alignment(c.alignment),
+      :alignment => c.alignment,
       :size  => get_size_name(c.size),
       :type => c.type_name,
       :subtypes => c.subtypes.join(', '),
@@ -54,10 +54,6 @@ class CreatureHandler
   def get_size_name(size)
     size_name = Creature::SIZE_TABLE.key(size).downcase
     I18n.t("app.creatures.sizes.#{size_name}")
-  end
-
-  def get_alignment(alignment)
-    I18n.t("app.creatures.alignments.#{alignment}")
   end
 
   def build_creature_response(a)
